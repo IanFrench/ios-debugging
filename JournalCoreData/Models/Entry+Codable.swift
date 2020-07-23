@@ -17,7 +17,8 @@ extension Entry: Encodable {
         try container.encode(bodyText, forKey: .bodyText)
         try container.encode(mood, forKey: .mood)
         try container.encode(timestamp, forKey: .timestamp)
-        try container.encode(timestamp, forKey: .identifier)
+        try container.encode(identifier, forKey: .identifier)
+        // #4 Error, timestamp used twoce
     }
     
     enum CodingKeys: String, CodingKey {

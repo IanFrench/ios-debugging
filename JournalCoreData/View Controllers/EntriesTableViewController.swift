@@ -13,7 +13,8 @@ class EntriesTableViewController: UITableViewController, NSFetchedResultsControl
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        // #6 Error - missing call for fetch
+        entryController.fetchEntriesFromServer()
         tableView.reloadData()
     }
     
@@ -112,7 +113,8 @@ class EntriesTableViewController: UITableViewController, NSFetchedResultsControl
                 let indexPath = tableView.indexPathForSelectedRow else { return }
             
             destinationVC.entry = fetchedResultsController.object(at: indexPath)
-            
+            destinationVC.entryController = entryController
+            // #7 Error - missing entryController statement
         default:
             break
         }
